@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Student Details & Skills</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1e1e2f;
+            color: #eee;
+        }
+        .container {
+            background: #2a2a40;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+            width: 320px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+        button {
+            margin-top: 25px;
+            padding: 12px 0;
+            width: 100%;
+            background: #7158e2;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #5a44c9;
+        }
+        .error {
+            color: #ff6b6b;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Student Details and Skills</h2>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST" action="/">
+            <label>Full Name:</label>
+            <input type="text" name="student_name" required />
+
+            <label>Email:</label>
+            <input type="email" name="student_email" required />
+
+            <label>Roll Number:</label>
+            <input type="text" name="student_roll" required />
+
+            <label>Skills (comma separated):</label>
+            <input type="text" name="skills" />
+
+            <button type="submit">Generate Quiz</button>
+        </form>
+    </div>
+</body>
+</html>
